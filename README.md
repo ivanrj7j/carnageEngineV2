@@ -1,5 +1,9 @@
 # Carnage Engine
 
+## Help!
+It would be great if anyone is interested in helping with this project, contact me on randomguy (ping me)#5370 in discord or discussions in
+https://github.com/ivanrj7j/carnageEngineV2/discussions 
+
 ## About
 Hello There, This is a game engine intendted to make game development easy for new python developers.
 Carnage Engine is based on pygames and adds many features on top of it and makes many of its aspects like window 
