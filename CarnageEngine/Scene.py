@@ -1,15 +1,17 @@
 import pickle
 from uuid import uuid4
 from CarnageEngine import Entity
+from CarnageEngine.Camera import Camera
 
 
 class Scene:
-    def __init__(self, name="", children=[]) -> None:
+    def __init__(self, name="", children=[], Camera=Camera()) -> None:
         self.id = str(uuid4().hex)
         self.name = name
         if name == "":
             self.name = id
         self.children = children
+        self.camera = Camera
 
     def AppendChild(self, child:Entity):
         """
@@ -17,13 +19,11 @@ class Scene:
         """
         self.children.append(child)
 
-    def Update(self):
+    def Update(self, parent):
         """
         Runs every time the frame is refreshed
         """
-        if len(self.children) > 0:
-            for child in self.children:
-                child.Update()
+        self.camera.Update(self.children, parent)
     
     def Exit(self):
         """

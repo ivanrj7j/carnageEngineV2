@@ -22,7 +22,7 @@ class Window:
             self.screen.fill(self.backgroundColor)
             #clear the screen
 
-            self.currentScene.Update()
+            self.currentScene.Update(self)
             # updating the current scene 
 
             pygame.display.flip()

@@ -1,6 +1,5 @@
 from uuid import uuid4
 import pickle
-import json
 
 class Entity:
     def __init__(self, name, children:object =[]):
@@ -16,6 +15,8 @@ class Entity:
         
         self.EventDictionary = {"OnAwake": self.OnAwakeFunctions, "OnUpdate": self.OnUpdateFunctions, "OnExit":self.OnExitFunctions}
         # creating the list of event functions 
+
+        self.ChildrenList = []
 
         if len(children) > 0:
             for child in children:
@@ -41,6 +42,7 @@ class Entity:
                         child.__getattribute__(method)()
                 else:
                     setattr(self, method, child.__getattribute__(method))
+        self.ChildrenList.append(child)
 
     def GetString(self):
         """
@@ -63,12 +65,12 @@ class Entity:
             setattr(cls, attribute, attributes[attribute])
         return cls
 
-    def Update(self):
+    def Update(self,window,camera):
         """
         Runs Every time whenever there is an update to the frame
         """
         for updateFunction in self.OnUpdateFunctions:
-            updateFunction()
+            updateFunction(window, camera,self)
 
     def Exit(self):
         """
