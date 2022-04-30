@@ -1,5 +1,4 @@
 from math import cos, radians, sin
-
 from pygame import Rect
 import pygame
 from CarnageEngine.Transform import Transform
@@ -16,8 +15,8 @@ class Camera:
     def convertCordinates(self, targetObj:Transform):
         """Does a prespective projection to the object
         https://en.wikipedia.org/wiki/3D_projection#Perspective_projection"""
-        rotationMatrix = Transform.rotationMatrix(targetObj.transform-self.position, self.angleInRadians)
-        w = rotationMatrix.distance(targetObj.position)
+        rotationMatrix = Transform.rotationMatrix(targetObj.Transform.transform-self.position, self.angleInRadians)
+        w = rotationMatrix.distance(targetObj.Transform.position)
         if self.position.y>rotationMatrix.y:
             w = -w
             # this is experimental 

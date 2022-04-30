@@ -20,7 +20,7 @@ class Test:
     
     def OnUpdate(self, window, camera, this):
         newPosition = Vector(this.position.x + 1, this.position.y, this.position.z)
-        this.updatePosition(newPosition)
+        this.Transform.updatePosition()
 
 subject = Test()
 t = Transform(position=Vector(0,5,2), angle=Vector(5,5,2), scale=Vector(4,4,4), anchor=Vector(-5,5,2))

@@ -30,18 +30,7 @@ class Entity:
         """
         Appends a child to the class in runtime
         """
-        for attribute in child.__dict__:
-            setattr(self, attribute, child.__getattribute__(attribute))
-        for method in child.__dir__():
-            if not method.startswith("__"):
-                if method in self.EventDictionary:
-                    methodName =  str(child.__hash__())+method
-                    setattr(self, methodName, child.__getattribute__(method))
-                    self.EventDictionary[method].append(self.__getattribute__(methodName))
-                    if method == "OnAwake":
-                        child.__getattribute__(method)()
-                else:
-                    setattr(self, method, child.__getattribute__(method))
+        setattr(self, type(child).__name__, child)
         self.ChildrenList.append(child)
 
     def GetString(self):
