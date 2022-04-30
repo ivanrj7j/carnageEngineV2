@@ -7,14 +7,6 @@ class Entity:
         self.name = name
         if name == "":
             self.name = id
-        # assigning the name and id of the object 
-
-        self.OnAwakeFunctions = []
-        self.OnUpdateFunctions = []
-        self.OnExitFunctions = []
-        
-        self.EventDictionary = {"OnAwake": self.OnAwakeFunctions, "OnUpdate": self.OnUpdateFunctions, "OnExit":self.OnExitFunctions}
-        # creating the list of event functions 
 
         self.ChildrenList = []
 
@@ -22,8 +14,9 @@ class Entity:
             for child in children:
                 self.AppendChild(child)
 
-        for awakeFunction in self.OnAwakeFunctions:
-            awakeFunction()
+        for child in self.ChildrenList:
+            if "OnAwake" in dir(child):
+                child.OnAwake()
 
     
     def AppendChild(self, child:object):
@@ -58,14 +51,16 @@ class Entity:
         """
         Runs Every time whenever there is an update to the frame
         """
-        for updateFunction in self.OnUpdateFunctions:
-            updateFunction(window, camera,self)
+        for child in self.ChildrenList:
+            if "OnUpdate" in dir(child):
+                child.OnUpdate(window, camera, self)
 
     def Exit(self):
         """
         Runs just before the applications closes and returns a summary of the object
         """
-        for exitFunction in self.OnExitFunctions:
-            exitFunction()
+        for child in self.ChildrenList:
+            if "OnExit" in dir(child):
+                child.OnExit()
 
         return self.GetString()

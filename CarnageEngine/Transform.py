@@ -55,8 +55,5 @@ class Transform:
         return zMatrix
 
     def updatePosition(self, newPosition:Vector):
-        rotationMatrix = Transform.rotationMatrix(newPosition-self.anchor, self.angleInRadians)
-        # calculates the relative rotation of the position according to the anchor 
-        self.transform = ((rotationMatrix) + self.anchor)
-        # the final position 
+        return Transform(newPosition, self.anchor, self.angle, self.scale)
 
