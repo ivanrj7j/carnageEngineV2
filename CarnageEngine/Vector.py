@@ -8,7 +8,7 @@ class Vector:
         self.z = z
     
     def vector(self):
-        return (self.x, self.y)
+        return (self.x, self.y, self.z)
 
     def __add__ (self, other):
         """

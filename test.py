@@ -13,32 +13,22 @@ class Test:
         self.n = "meow"
     
     def noobda(self):
-        print("noobda")
+        pass
 
     def OnExit(self):
-        print("bye")
+        pass
     
-    def OnUpdate(self, window, camera, parent):
-        parent.position.x += 10
+    def OnUpdate(self, window, camera, this):
+        newPosition = Vector(this.position.x + 1, this.position.y, this.position.z)
+        this.updatePosition(newPosition)
 
 subject = Test()
-t = Transform(Vector(5,5,2), angle=Vector(0,0,0), scale=Vector(4,4,4), anchor=Vector(5,5,2))
-a = Entity("hah", [t,subject])
-a.noobda()
+t = Transform(position=Vector(0,5,2), angle=Vector(5,5,2), scale=Vector(4,4,4), anchor=Vector(-5,5,2))
+a = Entity("hah", [subject,t])
 
-cam = Camera(position = Vector(4,3,10))
+cam = Camera(position = Vector(0,0,0), angle=(Vector(0, 0, 0)))
 scene = Scene(name="Default", children=[a], Camera=cam)
 window = Window((500,500), {'a':scene}, 'a')
 
 while window.running:
     window.Update()
-
-# a = Vector(0,0,0)
-# b = Vector(5, 5, 0)
-
-# print(a.dot(b))
-# print(a.distance(b))
-# print(degrees(a.angle(b)))
-
-# cam = Camera(Vector(4,3,10))
-# print(cam.convertCordinates(t))
