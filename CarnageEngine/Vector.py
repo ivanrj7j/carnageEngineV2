@@ -7,7 +7,11 @@ class Vector:
         self.y = y
         self.z = z
     
+    @property
     def vector(self):
+        """
+        Returns the object as a tuple
+        """
         return (self.x, self.y, self.z)
 
     def __add__ (self, other):
@@ -74,7 +78,11 @@ class Vector:
         """returns a string of the object when needed """
         return str((self.x, self.y, self.z))
 
+    @staticmethod
     def zero():
+        """
+        Returns a Vector with cordinates 0
+        """
         return Vector(0,0,0)
 
     def dot(self, other):

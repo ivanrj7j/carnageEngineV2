@@ -13,10 +13,12 @@ class Entity:
         if len(children) > 0:
             for child in children:
                 self.AppendChild(child)
+                #append every child
 
         for child in self.ChildrenList:
             if "OnAwake" in dir(child):
                 child.OnAwake()
+                # calling the OnAwake function of all children 
 
     
     def AppendChild(self, child:object):
@@ -35,12 +37,19 @@ class Entity:
     def CreateSave(self, destination:str):
         """
         Saves itself in the given destination
+
+        :param str destination: The file path to where the file should be saved
         """
         with open(destination+"/"+self.name + "_"+ self.id+".carng", "wb") as saveFile:
             pickle.dump(self.__dict__, saveFile)
 
     @classmethod
     def InitiateFromFile(cls, file:str):
+        """
+        Reads the File and creates itself with the given attributes in the files
+
+        :param str file: The path to the file
+        """
         with open(file, "rb") as saveFile:
             attributes = pickle.load(saveFile)
         for attribute in attributes:

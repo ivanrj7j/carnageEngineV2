@@ -4,6 +4,14 @@ from CarnageEngine.Vector import Vector
 
 class Transform:
     def __init__(self, position:Vector,anchor:Vector, angle=Vector(0,0,0), scale=Vector(1,1,1)) -> None:
+        """
+        Handles all the Vector of an object
+
+        :param Vector position: The position of the Object
+        :param Vector anchor: The anchor of the Object, all the calculations done are done relative to this position
+        :param Vector angle: The angle of the Object, rotation matrix is done based on this parameter
+        :param Vector scale: The scale of the Object
+        """
         self.position = position
         self.angle = angle
         self.angleInRadians = Vector(radians(self.angle.x), radians(self.angle.y), radians(self.angle.z))
@@ -18,6 +26,9 @@ class Transform:
 
     @property
     def transform(self):
+        """
+        The Vector with rotation and scale applied to the position of the object
+        """
         rotationMatrix = Transform.rotationMatrix(self.position-self.anchor, self.angleInRadians)
         # calculates the relative rotation of the position according to the anchor 
         return ((rotationMatrix) + self.anchor)

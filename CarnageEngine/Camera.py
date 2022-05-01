@@ -7,6 +7,9 @@ from CarnageEngine.Vector import Vector
 
 class Camera:
     def __init__(self, position=Vector(0,0,0), fov=45, angle=Vector(0,0,0)) -> None:
+        """
+        Acts as the eye of the Scene, all the calculations are done relative to this
+        """
         self.position = position
         self.fov = fov
         self.angle = angle
@@ -27,6 +30,9 @@ class Camera:
     def Update(self, children, window):
         """
         Runs every time the frame is refreshed
+        
+        :param list children: The list of all the children:Entity in the scene
+        :param Window window: The window on which the current scene is running
         """
         if len(children) > 0:
             for child in children:
