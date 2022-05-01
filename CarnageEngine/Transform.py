@@ -8,19 +8,20 @@ class Transform:
         self.angle = angle
         self.angleInRadians = Vector(radians(self.angle.x), radians(self.angle.y), radians(self.angle.z))
         self.scale = scale
-        self.anchor = anchor
-
-        rotationMatrix = Transform.rotationMatrix(self.position-self.anchor, self.angleInRadians)
-        # calculates the relative rotation of the position according to the anchor 
-        self.transform = ((rotationMatrix) + self.anchor)
-        # the final position 
+        self.anchor = anchor       
 
     @property
     def multiViewProjection(self):
         """Returns a Multi View Projection of the vector
         https://en.wikipedia.org/wiki/Multiview_orthographic_projection"""
         return (self.transform.x, self.transform.z)
-        
+
+    @property
+    def transform(self):
+        rotationMatrix = Transform.rotationMatrix(self.position-self.anchor, self.angleInRadians)
+        # calculates the relative rotation of the position according to the anchor 
+        return ((rotationMatrix) + self.anchor)
+        # the final position 
 
     @staticmethod
     def mulMatrix(i:Vector, a:Vector, b:Vector, c:Vector):
@@ -53,7 +54,3 @@ class Transform:
         # calculating the matrix with z axis rotation 
 
         return zMatrix
-
-    def updatePosition(self, newPosition:Vector):
-        return Transform(newPosition, self.anchor, self.angle, self.scale)
-
