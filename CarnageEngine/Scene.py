@@ -46,3 +46,11 @@ class Scene:
         """
         with open(destination+"/"+self.name + "_"+ self.id+".carng", "wb") as saveFile:
             pickle.dump(self.__dict__, saveFile)
+
+    @classmethod
+    def InitiateFromFile(cls, file:str):
+        with open(file, "rb") as saveFile:
+            attributes = pickle.load(saveFile)
+        for attribute in attributes:
+            setattr(cls, attribute, attributes[attribute])
+        return cls
