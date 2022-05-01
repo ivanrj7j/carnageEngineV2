@@ -1,4 +1,5 @@
 from math import cos, radians, sin
+from xml.dom.minidom import Entity
 from pygame import Rect
 import pygame
 from CarnageEngine.Transform import Transform
@@ -15,7 +16,7 @@ class Camera:
         self.angle = angle
         self.angleInRadians = Vector(radians(self.angle.x), radians(self.angle.y), radians(self.angle.z))
 
-    def convertCordinates(self, targetObj:Transform):
+    def convertCordinates(self, targetObj:Entity):
         """Does a prespective projection to the object
         https://en.wikipedia.org/wiki/3D_projection#Perspective_projection"""
         rotationMatrix = Transform.rotationMatrix(targetObj.Transform.transform-self.position, self.angleInRadians)
@@ -37,7 +38,7 @@ class Camera:
         if len(children) > 0:
             for child in children:
                 child.Update(window, self)
-                for grandChild in child.ChildrenList:
-                    if type(grandChild) == Transform:
-                        square = Rect(self.convertCordinates(child), (25,25))
-                        pygame.draw.rect(window.screen, (0,0,0), square)
+                
+                if "Transform" in dir(child):
+                    square = Rect(self.convertCordinates(child), (25,25))
+                    pygame.draw.rect(window.screen, (0,0,0), square)

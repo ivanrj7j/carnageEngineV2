@@ -18,9 +18,13 @@ class Window:
         self.scenes = scenes
         self.currentScene = scenes[currentScene]
         self.screen = pygame.display.set_mode(self.dimensions)
+        # initialising the screen 
         pygame.display.set_caption(self.title)
+        # setting the caption of the window 
         self.clock = pygame.time.Clock()
+        # initialising the clock 
         self.running = True
+        # True when the window is running 
 
     def Update(self):
         """
@@ -29,8 +33,8 @@ class Window:
         while self.running:
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    self.currentScene.Exit()
-                    self.running = False
+                    self.Exit()
+                    # Exiting the window when the 'x' button in the window is clicked
 
             self.screen.fill(self.backgroundColor)
             #clear the screen
@@ -44,6 +48,7 @@ class Window:
             self.clock.tick(60)
             # how many updates per second
         pygame.quit()
+        # quitting out of pygame 
 
     def CreateSave(self, destination:str):
         """
@@ -66,3 +71,8 @@ class Window:
         for attribute in attributes:
             setattr(cls, attribute, attributes[attribute])
         return cls
+
+    def Exit(self):
+        """Exits out of the window"""
+        self.currentScene.Exit()
+        self.running = False

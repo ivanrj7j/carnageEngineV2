@@ -36,7 +36,10 @@ class Transform:
 
     @staticmethod
     def mulMatrix(i:Vector, a:Vector, b:Vector, c:Vector):
-        """Does a multiplication matrix calculation"""
+        """
+        Does a matrix multiplication calculation
+        To Learn more about Matrix multiplication, http://matrixmultiplication.xyz/
+        """
         x = (i.x * a.x) + (i.x * b.x) + (i.x * c.x)
         y = (i.y * a.y) + (i.y * b.y) + (i.y * c.y)
         z = (i.z * a.z) + (i.z * b.z) + (i.z * c.z)
