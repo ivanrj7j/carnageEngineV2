@@ -2,7 +2,7 @@ import pickle
 import pygame
 
 class Window:
-    def __init__(self, dimensions:tuple,scenes:dict, currentScene, title="Carnage Window", backgroundColor = (181,51,83)) -> None:
+    def __init__(self, dimensions:tuple,scenes:dict, currentScene, title="Carnage Window", backgroundColor = (181,51,83), logo="CarnageEngine/resource/logo.ico") -> None:
         """
         The main Window where everything happens.
 
@@ -11,6 +11,7 @@ class Window:
         :param Any currentScene: The index of the current scene used
         :param str title: The name of the Window (default "Carnage Window")
         :param tuple backgroundColor: The Main color which is going to be used when refreshing the frame as background (default (181,51,83))
+        :param str logo: The file path of the logo (default "CarnageEngine/resource/logo.ico")
         """
         self.dimensions = dimensions
         self.backgroundColor = backgroundColor
@@ -25,6 +26,10 @@ class Window:
         # initialising the clock 
         self.running = True
         # True when the window is running 
+
+        pygame_icon = pygame.image.load(logo)
+        pygame.display.set_icon(pygame_icon)
+        # setting the icon of the window
 
     def Update(self):
         """
