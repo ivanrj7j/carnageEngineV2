@@ -1,5 +1,7 @@
 # Carnage Engine
 
+![alt text](https://github.com/ivanrj7j/carnageEngineV2/blob/master/CarnageEngine/resource/CarnageLogo.png)
+
 ## Help!
 It would be great if anyone is interested in helping with this project, contact me on ``randomguy (ping me)#5370`` in discord or discussions in
 https://github.com/ivanrj7j/carnageEngineV2/discussions 
