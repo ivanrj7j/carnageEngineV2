@@ -41,4 +41,4 @@ class Camera:
                 child.Update(window, self)
                 
                 if "Transform" in dir(child) and ("Sprite" in dir(child) or "AnimatedSprite" in dir(child)):
-                    child.Sprite.render(window, child)
+                    child.Sprite.render(window, child, self.angleInRadians)

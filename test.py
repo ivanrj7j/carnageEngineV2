@@ -24,7 +24,7 @@ class Test:
         this.Transform.position.x+=1
 
 subject = Test()
-t = Transform(position=Vector(0,5,2), angle=Vector(5,5,2), scale=Vector(4,4,4), anchor=Vector(-5,5,2))
+t = Transform(position=Vector(0,5,2), angle=Vector(50,230,122), scale=Vector(4,4,4), anchor=Vector(-5,5,2))
 sprite = Sprite("test/bird.png", (50,50))
 a = Entity("hah", [subject,t, sprite])
 
