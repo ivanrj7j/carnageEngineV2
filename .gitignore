@@ -156,3 +156,4 @@ include/
 Scripts/
 pyvenv.cfg
 test.py
+test/

@@ -6,6 +6,7 @@ from CarnageEngine.Scene import Scene
 from CarnageEngine.Vector import Vector
 from CarnageEngine.Window import Window
 from CarnageEngine.Transform import Transform
+from CarnageEngine.Sprite import Sprite
 """This File is just for testing purpose, I am not ignoring this because it would be helpful"""
 
 class Test:
@@ -24,7 +25,8 @@ class Test:
 
 subject = Test()
 t = Transform(position=Vector(0,5,2), angle=Vector(5,5,2), scale=Vector(4,4,4), anchor=Vector(-5,5,2))
-a = Entity("hah", [subject,t])
+sprite = Sprite("test/bird.png", (50,50))
+a = Entity("hah", [subject,t, sprite])
 
 cam = Camera(position = Vector(0,0,0), angle=(Vector(0, 0, 0)))
 scene = Scene(name="Default", children=[a], Camera=cam)

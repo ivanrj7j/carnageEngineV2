@@ -34,11 +34,11 @@ class Camera:
         
         :param list children: The list of all the children:Entity in the scene
         :param Window window: The window on which the current scene is running
+        :param Scene this: The Scene on which the camera is running
         """
         if len(children) > 0:
             for child in children:
                 child.Update(window, self)
                 
-                if "Transform" in dir(child):
-                    square = Rect(self.convertCordinates(child), (25,25))
-                    pygame.draw.rect(window.screen, (0,0,0), square)
+                if "Transform" in dir(child) and ("Sprite" in dir(child) or "AnimatedSprite" in dir(child)):
+                    child.Sprite.render(window, child)

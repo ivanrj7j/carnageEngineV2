@@ -10,8 +10,7 @@ class AnimatedSprite:
         sprite in Frame (int) as the value
         """
         self.sprites = {}
-        for sprite in sprites:
-            self.sprites[image.load(sprite)] = sprites[sprite]
+        self.sprites = sprites
         self.name = name
 
     def render(self, surface):
