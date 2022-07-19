@@ -1,14 +1,30 @@
 from uuid import uuid4
 import pickle
+from CarnageEngine.Transform import Transform
+from CarnageEngine.Vector import Vector
 
-class Entity:
-    def __init__(self, name, children:object =[]):
+class Entity(Transform):
+    def __init__(self, name:str,position:Vector,anchor=Vector(0,0), children:list = [], angle=Vector(0,0), scale=Vector(1,1)):
+        """
+        Handles all the Carnage Entities
+
+        :param str name: The name of the Object
+        :param Vector position: The position of the Object
+        :param Vector anchor: The anchor of the Object, all the calculations done are done relative to this position
+        :param list children: The list of all children
+        :param Vector angle: The angle of the Object, rotation matrix is done based on this parameter
+        :param Vector scale: The scale of the Object
+        """
         self.id = str(uuid4().hex)
         self.name = name
         if name == "":
             self.name = id
 
         self.ChildrenList = []
+        self.position = position
+        self.angle = angle
+        self.scale = scale
+        self.anchor = anchor  
 
         if len(children) > 0:
             for child in children:

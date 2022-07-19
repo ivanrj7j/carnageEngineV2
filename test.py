@@ -21,16 +21,17 @@ class Test:
     
     def OnUpdate(self, window, camera, this):
         # newPosition = Vector(this.Transform.position.x + 1, this.Transform.position.y+3, this.Transform.position.z+1)
-        this.Transform.position.x+=1
+        this.position+=1
+        print(this.transform)
 
 subject = Test()
-t = Transform(position=Vector(0,5,2), angle=Vector(50,230,122), scale=Vector(4,4,4), anchor=Vector(-5,5,2))
-sprite = Sprite("test/bird.png", (50,50))
-a = Entity("hah", [subject,t, sprite])
+sprite = Sprite("test/bird.jpg", Vector(50,50))
+a = Entity("CircusBaby", Vector(2,3), Vector(0,0), [sprite, subject])
 
-cam = Camera(position = Vector(0,0,0), angle=(Vector(0, 0, 0)))
+cam = Camera(position = Vector(0,0), angle=(Vector(0, 0)))
 scene = Scene(name="Default", children=[a], Camera=cam)
 window = Window((500,500), {'a':scene}, 'a')
 
 while window.running:
     window.Update()
+
