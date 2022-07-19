@@ -3,7 +3,7 @@
 ![alt text](https://github.com/ivanrj7j/carnageEngineV2/blob/master/CarnageEngine/resource/CarnageLogo.png)
 
 ## Help!
-It would be great if anyone is interested in helping with this project, contact me on ``randomguy (ping me)#5370`` in discord or discussions in
+It would be great if anyone is interested in helping with this project, contact me on ``Theseus#5370`` in discord or discussions in
 https://github.com/ivanrj7j/carnageEngineV2/discussions 
 
 ## About
@@ -11,6 +11,9 @@ Hello There, This is a game engine intendted to make game development easy for n
 Carnage Engine is based on pygames and adds many features on top of it and makes many of its aspects like window 
 window set up object oriented instead of classic procedural programming. This game engine is based on Entity system
 inspired by Unity Game Engine
+
+## New Update on the project
+I have been doing the project in 3d until now, I found that very stressful for myself to manage, so I am downgrading the project to 2d
 
 ## Features to be added
 1. Scene System (Work in progress)
