@@ -1,34 +1,30 @@
 # Carnage Engine
 
-![alt text](https://github.com/ivanrj7j/carnageEngineV2/blob/master/CarnageEngine/resource/CarnageLogo.png)
+![Carnage Engine Logo](https://github.com/ivanrj7j/carnageEngineV2/blob/master/CarnageEngine/resource/CarnageLogo.png)
 
 ## Help!
-It would be great if anyone is interested in helping with this project, contact me on ``Theseus#5370`` in discord or discussions in
-https://github.com/ivanrj7j/carnageEngineV2/discussions 
+If you're interested in contributing to this project, feel free to reach out to me on Discord at `Theseus#5370` or join the discussion at [GitHub Discussions](https://github.com/ivanrj7j/carnageEngineV2/discussions).
 
 ## About
-Hello There, This is a game engine intendted to make game development easy for new python developers.
-Carnage Engine is based on pygames and adds many features on top of it and makes many of its aspects like window 
-window set up object oriented instead of classic procedural programming. This game engine is based on Entity system
-inspired by Unity Game Engine
+Hello! The Carnage Engine is designed to make game development easier for new Python developers. It builds on Pygame and introduces additional features, making aspects like window setup object-oriented rather than relying on traditional procedural programming. The engine is based on an Entity system, inspired by the Unity Game Engine.
 
-## New Update on the project
-I have been doing the project in 3d until now, I found that very stressful for myself to manage, so I am downgrading the project to 2d
+## Project Update
+Initially, this project was focused on 3D development. However, I found it too challenging to manage, so I have decided to shift the focus to 2D.
 
-## Features to be added
+## Planned Features
 1. Scene System (Work in progress)
 2. Window System (Work in progress)
-3. Cordinate System (Work in progress)
+3. Coordinate System (Work in progress)
 4. Camera System (Work in progress)
-5. Physics System (Future Work)
-6. Sound System (Future Work)
-7. Light System (Future Work)
-8. GUI Editor (Will Start Working on it when above systems are completed)
+5. Physics System (Future work)
+6. Sound System (Future work)
+7. Lighting System (Future work)
+8. GUI Editor (To be started after completing the above systems)
 
-## How To Install
-1. Download or fork the repository
-2. Open Terminal in the fork or extracted download folder
-3. Type ``pip install -r requirements.txt``
+## How to Install
+1. Download or fork the repository.
+2. Open Terminal in the forked or extracted download folder.
+3. Run `pip install -r requirements.txt`.
 
 ## Disclaimer
-This is my second attempt doing this, I have tried doing this before but the project got so much complicated with many classes, but this time I am trying to make a entity based system to avoid this!
+This is my second attempt at this project. My previous attempt became too complex with numerous classes. This time, I'm aiming for an entity-based system to simplify the process!
